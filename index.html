@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASM KENYA - Sports Scholarship Consulting</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      position: fixed;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header.scrolled {
+      padding: 15px 8%;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo h1 {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #0056b3;
+      margin-left: 10px;
+    }
+
+    .logo span {
+      color: #ff7b00;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #0056b3;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background: #0056b3;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .cta-button {
+      background: #0056b3;
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #004494;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #f0f0f0;
+    }
+
+    .btn {
+      background: #ff7b00;
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1.1rem;
+      margin: 10px;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #e56d00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: #333;
+    }
+
+    /* About Section */
+    .about {
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #0056b3;
+    }
+
+    .about-content p {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .about-image {
+      flex: 1;
+      height: 500px;
+      border-radius: 10px;
+      background: url('https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')
+        no-repeat center center/cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 100px 8%;
+      background: #f0f5ff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: #0056b3;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: #e6f0ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0056b3;
+      font-size: 2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #0056b3;
+    }
+
+    .service-card p {
+      color: #666;
+    }
+
+    /* Sports Section */
+    .sports {
+      padding: 100px 8%;
+    }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .sport-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .sport-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .sport-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .sport-content {
+      padding: 25px;
+    }
+
+    .sport-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #0056b3;
+    }
+
+    .sport-content p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    /* Process Section */
+    .process {
+      padding: 100px 8%;
+      background: #f0f5ff;
+    }
+
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: #0056b3;
+      z-index: 1;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: #0056b3;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #0056b3;
+    }
+
+    .step p {
+      color: #666;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 100px 8%;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #444;
+      position: relative;
+    }
+
+    .testimonial-text::before {
+      content: '"';
+      font-size: 4rem;
+      color: #e6f0ff;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      z-index: 0;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      margin-right: 15px;
+    }
+
+    .author-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 100px 8%;
+      background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.9)), 
+                  url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 8%;
+      display: flex;
+      gap: 60px;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0056b3;
+    }
+
+    .contact-info p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .contact-details {
+      margin-bottom: 30px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-detail i {
+      width: 50px;
+      height: 50px;
+      background: #e6f0ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: #0056b3;
+      font-size: 1.2rem;
+    }
+
+    .contact-form {
+      flex: 1;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 60px 8% 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #ff7b00;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #ff7b00;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #ff7b00;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about {
+        flex-direction: column;
+      }
+      
+      .contact {
+        flex-direction: column;
+      }
+      
+      .process-steps {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+      
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+      
+      header {
+        flex-direction: column;
+        padding: 15px 5%;
+      }
+      
+      nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <div class="logo">
+      <h1>ASM <span>KENYA</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="cta-button">Free Consultation</a>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Connecting Kenyan Talent with US Sports Scholarships</h2>
+      <p>We help talented Kenyan student-athletes secure athletic scholarships at top US universities, turning dreams into reality.</p>
+      <div>
+        <a href="#process" class="btn">How It Works</a>
+        <a href="#contact" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-content">
+      <h2>About ASM KENYA</h2>
+      <p>ASM KENYA is a premier consulting agency dedicated to connecting talented Kenyan student-athletes with sports scholarship opportunities in the United States.</p>
+      <p>With over a decade of experience, our team of experts understands the intricate process of college recruitment and scholarship acquisition. We've successfully placed hundreds of Kenyan athletes in NCAA Division I, II, and III programs across the USA.</p>
+      <p>Our mission is to bridge the gap between Kenyan athletic talent and American educational opportunities, providing a pathway to world-class education while pursuing athletic excellence.</p>
+      <a href="#contact" class="btn" style="margin-top: 20px;">Schedule Consultation</a>
+    </div>
+    <div class="about-image"></div>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Talent Assessment</h3>
+        <p>Comprehensive evaluation of athletic abilities, academic records, and scholarship potential.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-university"></i>
+        </div>
+        <h3>University Matching</h3>
+        <p>Identifying the best US college fits based on athletic, academic, and personal preferences.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <h3>Application Support</h3>
+        <p>Complete guidance through the complex application and recruitment process.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-passport"></i>
+        </div>
+        <h3>Visa Assistance</h3>
+        <p>Expert help with student visa applications and preparation for consular interviews.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sports" class="sports">
+    <h2 class="section-title">Sports We Specialize In</h2>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <div class="sport-img" style="background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="sport-content">
+          <h3>Basketball</h3>
+          <p>Connecting talented Kenyan basketball players with NCAA programs across all divisions.</p>
+          <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-img" style="background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="sport-content">
+          <h3>Football (Soccer)</h3>
+          <p>Placing skilled Kenyan footballers in competitive NCAA soccer programs.</p>
+          <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-img" style="background-image: url('https://images.unsplash.com/photo-1622279457486-62dcc4a4310e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="sport-content">
+          <h3>Tennis</h3>
+          <p>Matching Kenyan tennis talents with US college tennis programs and scholarships.</p>
+          <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+      </div>
+      <div class="sport-card">
+        <div class="sport-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="sport-content">
+          <h3>Swimming</h3>
+          <p>Connecting Kenyan swimmers with NCAA swimming programs and athletic scholarships.</p>
+          <a href="#contact" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <h2 class="section-title">Our 5-Step Process</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Talent Evaluation</h3>
+        <p>We assess your athletic skills, academic performance, and goals to determine scholarship potential.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>University Matching</h3>
+        <p>We identify the best US college fits based on your profile and preferences.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Application Preparation</h3>
+        <p>We help you prepare all necessary documents, highlight reels, and coach recommendations.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Coach Connections</h3>
+        <p>We connect you directly with college coaches and arrange recruitment opportunities.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <h3>Scholarship Acquisition</h3>
+        <p>We negotiate the best possible scholarship package and assist with visa processing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="section-title">Success Stories</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          ASM KENYA helped me secure a full basketball scholarship at the University of Kansas. Their guidance through the entire process was invaluable. I'm now living my dream of playing NCAA Division I basketball while getting a world-class education.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+          <div class="author-info">
+            <h4>Brian Omondi</h4>
+            <p>University of Kansas, Basketball</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          Thanks to ASM KENYA, I received a soccer scholarship at UCLA. They not only helped with the recruitment process but also prepared me for the cultural transition. I'm thriving both academically and athletically in the US.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-img" style="background-image: url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+          <div class="author-info">
+            <h4>Grace Wanjiku</h4>
+            <p>UCLA, Soccer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          ASM KENYA secured me a tennis scholarship at Stanford University. Their expertise in navigating the complex recruitment process made all the difference. I'm now competing at the highest level of college tennis.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-img" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+          <div class="author-info">
+            <h4>David Kimani</h4>
+            <p>Stanford University, Tennis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Take the first step toward securing your US sports scholarship. Our team is ready to help you achieve your dreams.</p>
+    <a href="#contact" class="btn">Get Your Free Consultation</a>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-info">
+      <h3>Contact ASM KENYA</h3>
+      <p>Have questions about our services or ready to begin your journey? We'd love to hear from you.</p>
+      
+      <div class="contact-details">
+        <div class="contact-detail">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Main Office</h4>
+            <p>Parklands Sports Club, Nairobi, Kenya</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>0712 345 678</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>info@asmkenya.com</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    
+    <div class="contact-form">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone">
+        </div>
+        <div class="form-group">
+          <label for="sport">Primary Sport</label>
+          <select id="sport" required>
+            <option value="">Select your sport</option>
+            <option value="basketball">Basketball</option>
+            <option value="soccer">Football (Soccer)</option>
+            <option value="tennis">Tennis</option>
+            <option value="swimming">Swimming</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us about your athletic background and goals..." required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>ASM KENYA</h3>
+        <p>Connecting Kenyan student-athletes with sports scholarships in the USA since 2010.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#">Talent Assessment</a></li>
+          <li><a href="#">University Matching</a></li>
+          <li><a href="#">Application Support</a></li>
+          <li><a href="#">Visa Assistance</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Sports</h3>
+        <ul>
+          <li><a href="#">Basketball</a></li>
+          <li><a href="#">Football (Soccer)</a></li>
+          <li><a href="#">Tennis</a></li>
+          <li><a href="#">Swimming</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="#">Parklands Sports Club</a></li>
+          <li><a href="#">0712 345 678</a></li>
+          <li><a href="#">info@asmkenya.com</a></li>
+          <li><a href="#">Free Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 ASM KENYA | Sports Scholarship Consulting | All Rights Reserved
+    </div>
+  </footer>
+
+  <script>
+    // Scroll to section function
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will contact you within 24 hours to discuss your sports scholarship opportunities.');
+      this.reset();
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
