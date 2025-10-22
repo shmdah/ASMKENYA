@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudFarm - Social Media Marketing Services</title>
+    <title>CloudFarm - TikTok Marketing Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,6 +21,8 @@
             --light: #ecf0f1;
             --gray: #95a5a6;
             --danger: #e74c3c;
+            --tiktok-pink: #fe2c55;
+            --tiktok-blue: #25f4ee;
         }
 
         body {
@@ -38,7 +40,7 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            background: linear-gradient(135deg, var(--dark), var(--tiktok-pink));
             color: white;
             padding: 15px 0;
             position: sticky;
@@ -61,7 +63,7 @@
 
         .logo i {
             font-size: 24px;
-            color: var(--primary);
+            color: var(--tiktok-blue);
         }
 
         .logo h1 {
@@ -70,7 +72,7 @@
         }
 
         .logo span {
-            color: var(--primary);
+            color: var(--tiktok-blue);
         }
 
         nav ul {
@@ -87,11 +89,11 @@
         }
 
         nav a:hover {
-            color: var(--primary);
+            color: var(--tiktok-blue);
         }
 
         .cta-button {
-            background-color: var(--primary);
+            background-color: var(--tiktok-pink);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -102,7 +104,7 @@
         }
 
         .cta-button:hover {
-            background-color: var(--primary-dark);
+            background-color: #d1003a;
         }
 
         /* Hero Section */
@@ -143,12 +145,12 @@
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background-color: var(--tiktok-pink);
             color: white;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
+            background-color: #d1003a;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
@@ -213,7 +215,7 @@
         .service-icon {
             font-size: 50px;
             margin-bottom: 20px;
-            color: var(--secondary);
+            color: var(--tiktok-pink);
         }
 
         .service-card h3 {
@@ -271,7 +273,7 @@
         }
 
         .form-control:focus {
-            border-color: var(--secondary);
+            border-color: var(--tiktok-pink);
             outline: none;
         }
 
@@ -310,7 +312,7 @@
 
         .loading-spinner {
             border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--secondary);
+            border-top: 4px solid var(--tiktok-pink);
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -342,13 +344,52 @@
             border: 1px solid #f5c6cb;
         }
 
+        .mpesa-section {
+            background-color: #f0f9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .mpesa-section h4 {
+            color: #007c3e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mpesa-steps {
+            margin-top: 15px;
+        }
+
+        .mpesa-step {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .step-number {
+            background-color: #007c3e;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
         /* Pricing Section */
         .pricing {
             padding: 80px 0;
             background-color: white;
         }
 
-        .platform-selector {
+        .service-selector {
             display: flex;
             justify-content: center;
             gap: 10px;
@@ -356,8 +397,8 @@
             flex-wrap: wrap;
         }
 
-        .platform-btn {
-            padding: 10px 20px;
+        .service-btn {
+            padding: 12px 20px;
             background-color: white;
             border: 2px solid var(--gray);
             border-radius: 5px;
@@ -369,10 +410,10 @@
             gap: 8px;
         }
 
-        .platform-btn.active {
-            background-color: var(--secondary);
+        .service-btn.active {
+            background-color: var(--tiktok-pink);
             color: white;
-            border-color: var(--secondary);
+            border-color: var(--tiktok-pink);
         }
 
         .pricing-table {
@@ -385,7 +426,7 @@
         }
 
         .pricing-header {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, var(--tiktok-pink), var(--tiktok-blue));
             color: white;
             padding: 20px;
             text-align: center;
@@ -426,7 +467,7 @@
         }
 
         .pricing-row .price {
-            color: var(--primary);
+            color: var(--tiktok-pink);
             font-weight: 700;
         }
 
@@ -460,7 +501,7 @@
 
         .feature i {
             font-size: 40px;
-            color: var(--secondary);
+            color: var(--tiktok-pink);
             margin-bottom: 20px;
         }
 
@@ -477,7 +518,7 @@
         /* CTA Section */
         .cta-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            background: linear-gradient(135deg, var(--tiktok-pink), var(--dark));
             color: white;
             text-align: center;
         }
@@ -521,7 +562,7 @@
             bottom: 0;
             width: 40px;
             height: 2px;
-            background-color: var(--primary);
+            background-color: var(--tiktok-pink);
         }
 
         .footer-column ul {
@@ -539,7 +580,7 @@
         }
 
         .footer-column a:hover {
-            color: var(--primary);
+            color: var(--tiktok-pink);
         }
 
         .social-links {
@@ -560,7 +601,7 @@
         }
 
         .social-links a:hover {
-            background-color: var(--primary);
+            background-color: var(--tiktok-pink);
             transform: translateY(-3px);
         }
 
@@ -596,7 +637,7 @@
                 align-items: center;
             }
 
-            .platform-selector {
+            .service-selector {
                 flex-wrap: wrap;
             }
         }
@@ -628,8 +669,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h2>Boost Your Social Media Presence</h2>
-            <p>Get real followers, likes, and views for Instagram, TikTok, and Facebook. Grow your audience and increase engagement with our premium SMMA services.</p>
+            <h2>Boost Your TikTok Presence</h2>
+            <p>Get real TikTok followers, likes, and views to grow your audience and increase engagement with our premium SMMA services.</p>
             <div class="hero-buttons">
                 <a href="#order" class="btn btn-primary">Order Now</a>
                 <a href="#pricing" class="btn btn-secondary">View Pricing</a>
@@ -641,32 +682,32 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
-                <p>We offer a variety of social media marketing services to help boost your online presence</p>
+                <h2>Our TikTok Services</h2>
+                <p>We offer a variety of TikTok marketing services to help boost your online presence</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fas fa-eye"></i>
                     </div>
-                    <h3>Instagram Growth</h3>
-                    <p>Get real followers, likes, and views for your Instagram profile and posts.</p>
+                    <h3>TikTok Views</h3>
+                    <p>Increase your TikTok video views to boost visibility and reach more people.</p>
                     <a href="#order" class="btn btn-primary">Order Now</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fab fa-tiktok"></i>
+                        <i class="fas fa-heart"></i>
                     </div>
-                    <h3>TikTok Engagement</h3>
-                    <p>Increase your TikTok views and followers to go viral and reach more people.</p>
+                    <h3>TikTok Likes</h3>
+                    <p>Get more likes on your TikTok videos to improve engagement and algorithm ranking.</p>
                     <a href="#order" class="btn btn-primary">Order Now</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fab fa-facebook"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Facebook Promotion</h3>
-                    <p>Boost your Facebook page likes, post engagement, and video views.</p>
+                    <h3>TikTok Followers</h3>
+                    <p>Grow your TikTok following with real, active followers who engage with your content.</p>
                     <a href="#order" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
@@ -678,13 +719,13 @@
         <div class="container">
             <div class="section-title">
                 <h2>Place Your Order</h2>
-                <p>Fill out the form below to boost your social media presence</p>
+                <p>Fill out the form below to boost your TikTok presence</p>
             </div>
             
             <div class="order-container">
                 <div class="order-form">
                     <div class="alert alert-success" id="successAlert">
-                        Order placed successfully! You will receive a confirmation email shortly.
+                        Order placed successfully! Check your email for M-Pesa payment instructions.
                     </div>
                     <div class="alert alert-error" id="errorAlert">
                         There was an error processing your order. Please try again.
@@ -692,31 +733,30 @@
                     
                     <form id="orderForm">
                         <div class="form-group">
-                            <label for="service">Service Type</label>
+                            <label for="service">TikTok Service</label>
                             <select id="service" class="form-control" required>
                                 <option value="">Select a service</option>
                                 <option value="tiktok_views">TikTok Views</option>
-                                <option value="instagram_followers">Instagram Followers</option>
-                                <option value="facebook_likes">Facebook Likes</option>
+                                <option value="tiktok_likes">TikTok Likes</option>
+                                <option value="tiktok_followers">TikTok Followers</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="package">Package</label>
-                            <select id="package" class="form-control" required>
-                                <option value="">Select a package</option>
-                                <!-- Packages will be populated by JavaScript -->
-                            </select>
+                            <label for="link">TikTok Video/Profile Link</label>
+                            <input type="url" id="link" class="form-control" placeholder="https://www.tiktok.com/..." required>
                         </div>
                         
                         <div class="form-group">
                             <label for="quantity">Quantity</label>
-                            <input type="number" id="quantity" class="form-control" min="1" value="1" required>
+                            <input type="number" id="quantity" class="form-control" min="100" step="100" value="1000" required>
+                            <small>Minimum order: 100</small>
                         </div>
                         
                         <div class="form-group">
-                            <label for="link">Profile/Post Link</label>
-                            <input type="url" id="link" class="form-control" placeholder="https://..." required>
+                            <label for="phone">M-Pesa Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="07XX XXX XXX" pattern="[0-9]{10}" required>
+                            <small>Enter your M-Pesa registered phone number</small>
                         </div>
                         
                         <div class="form-group">
@@ -724,7 +764,7 @@
                             <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Place Order</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Place Order & Pay with M-Pesa</button>
                     </form>
                     
                     <div class="loading" id="loadingIndicator">
@@ -740,10 +780,6 @@
                         <span id="summaryService">-</span>
                     </div>
                     <div class="summary-item">
-                        <span>Package:</span>
-                        <span id="summaryPackage">-</span>
-                    </div>
-                    <div class="summary-item">
                         <span>Quantity:</span>
                         <span id="summaryQuantity">-</span>
                     </div>
@@ -755,6 +791,38 @@
                         <span>Total:</span>
                         <span id="summaryTotal">Ksh 0</span>
                     </div>
+                    
+                    <div class="mpesa-section">
+                        <h4><i class="fas fa-mobile-alt"></i> M-Pesa Payment</h4>
+                        <p>Complete your payment via M-Pesa after placing your order.</p>
+                        
+                        <div class="mpesa-steps">
+                            <div class="mpesa-step">
+                                <div class="step-number">1</div>
+                                <div>Go to M-Pesa on your phone</div>
+                            </div>
+                            <div class="mpesa-step">
+                                <div class="step-number">2</div>
+                                <div>Select "Lipa Na M-Pesa"</div>
+                            </div>
+                            <div class="mpesa-step">
+                                <div class="step-number">3</div>
+                                <div>Select "Pay Bill"</div>
+                            </div>
+                            <div class="mpesa-step">
+                                <div class="step-number">4</div>
+                                <div>Enter Business No: <strong>123456</strong></div>
+                            </div>
+                            <div class="mpesa-step">
+                                <div class="step-number">5</div>
+                                <div>Enter Account No: <strong id="accountNumber">Order ID</strong></div>
+                            </div>
+                            <div class="mpesa-step">
+                                <div class="step-number">6</div>
+                                <div>Enter Amount: <strong id="mpesaAmount">Ksh 0</strong></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -765,24 +833,24 @@
         <div class="container">
             <div class="section-title">
                 <h2>Pricing</h2>
-                <p>Affordable packages to boost your social media presence</p>
+                <p>Affordable packages to boost your TikTok presence</p>
             </div>
             
-            <div class="platform-selector">
-                <div class="platform-btn active" data-platform="tiktok">
-                    <i class="fab fa-tiktok"></i> TikTok
+            <div class="service-selector">
+                <div class="service-btn active" data-service="tiktok_views">
+                    <i class="fas fa-eye"></i> TikTok Views
                 </div>
-                <div class="platform-btn" data-platform="instagram">
-                    <i class="fab fa-instagram"></i> Instagram
+                <div class="service-btn" data-service="tiktok_likes">
+                    <i class="fas fa-heart"></i> TikTok Likes
                 </div>
-                <div class="platform-btn" data-platform="facebook">
-                    <i class="fab fa-facebook"></i> Facebook
+                <div class="service-btn" data-service="tiktok_followers">
+                    <i class="fas fa-users"></i> TikTok Followers
                 </div>
             </div>
             
             <div class="pricing-table">
                 <div class="pricing-header">
-                    <h3>🚨 CLOUDFARM 🌱 PRICE LIST 🚨</h3>
+                    <h3 id="pricingTitle">🚨 CLOUDFARM 🌱 TIKTOK VIEWS PRICE LIST 🚨</h3>
                     <p id="pricingSubtitle">Real TikTok Views | Fast AF | Trusted Plug</p>
                 </div>
                 <div class="pricing-rows" id="pricingRows">
@@ -798,7 +866,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Why Choose CloudFarm?</h2>
-                <p>We provide the best SMMA services with these key features</p>
+                <p>We provide the best TikTok SMMA services with these key features</p>
             </div>
             <div class="features-grid">
                 <div class="feature">
@@ -828,8 +896,8 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Boost Your Social Media?</h2>
-            <p>Start growing your followers, likes, and views today with CloudFarm's premium SMMA services.</p>
+            <h2>Ready to Boost Your TikTok?</h2>
+            <p>Start growing your followers, likes, and views today with CloudFarm's premium TikTok services.</p>
             <a href="#order" class="btn btn-primary">Order Now</a>
         </div>
     </section>
@@ -840,21 +908,19 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>CloudFarm</h3>
-                    <p>Your trusted partner for social media growth and engagement.</p>
+                    <p>Your trusted partner for TikTok growth and engagement.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#order">Instagram Followers</a></li>
                         <li><a href="#order">TikTok Views</a></li>
-                        <li><a href="#order">Facebook Likes</a></li>
-                        <li><a href="#order">YouTube Subscribers</a></li>
+                        <li><a href="#order">TikTok Likes</a></li>
+                        <li><a href="#order">TikTok Followers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -882,10 +948,18 @@
     </footer>
 
     <script>
-        // Service data
+        // Service data with dynamic pricing
         const services = {
             tiktok_views: {
                 name: "TikTok Views",
+                basePrice: 0.102, // Price per view
+                tiers: [
+                    { min: 1000, max: 2000, discount: 0.02 },
+                    { min: 2001, max: 5000, discount: 0.05 },
+                    { min: 5001, max: 10000, discount: 0.08 },
+                    { min: 10001, max: 50000, discount: 0.12 },
+                    { min: 50001, max: 100000, discount: 0.15 }
+                ],
                 packages: [
                     { amount: "1K", price: 102, emoji: "🧠" },
                     { amount: "2K", price: 199, emoji: "🫰" },
@@ -899,34 +973,52 @@
                     { amount: "10K", price: 899, emoji: "📈" }
                 ]
             },
-            instagram_followers: {
-                name: "Instagram Followers",
+            tiktok_likes: {
+                name: "TikTok Likes",
+                basePrice: 0.15, // Price per like
+                tiers: [
+                    { min: 100, max: 500, discount: 0.05 },
+                    { min: 501, max: 1000, discount: 0.08 },
+                    { min: 1001, max: 5000, discount: 0.12 },
+                    { min: 5001, max: 10000, discount: 0.15 },
+                    { min: 10001, max: 50000, discount: 0.18 }
+                ],
                 packages: [
-                    { amount: "100", price: 150, emoji: "👥" },
-                    { amount: "500", price: 650, emoji: "🔥" },
-                    { amount: "1K", price: 1200, emoji: "🚀" },
-                    { amount: "2.5K", price: 2800, emoji: "💎" },
-                    { amount: "5K", price: 5200, emoji: "👑" },
-                    { amount: "10K", price: 9800, emoji: "🏆" }
+                    { amount: "100", price: 15, emoji: "👍" },
+                    { amount: "500", price: 70, emoji: "🔥" },
+                    { amount: "1K", price: 135, emoji: "🚀" },
+                    { amount: "2.5K", price: 320, emoji: "💎" },
+                    { amount: "5K", price: 600, emoji: "👑" },
+                    { amount: "10K", price: 1150, emoji: "🏆" }
                 ]
             },
-            facebook_likes: {
-                name: "Facebook Likes",
+            tiktok_followers: {
+                name: "TikTok Followers",
+                basePrice: 0.30, // Price per follower
+                tiers: [
+                    { min: 100, max: 500, discount: 0.05 },
+                    { min: 501, max: 1000, discount: 0.10 },
+                    { min: 1001, max: 5000, discount: 0.15 },
+                    { min: 5001, max: 10000, discount: 0.20 },
+                    { min: 10001, max: 50000, discount: 0.25 }
+                ],
                 packages: [
-                    { amount: "100", price: 120, emoji: "👍" },
-                    { amount: "500", price: 550, emoji: "💙" },
-                    { amount: "1K", price: 1000, emoji: "🔥" },
-                    { amount: "2.5K", price: 2300, emoji: "🚀" },
-                    { amount: "5K", price: 4400, emoji: "💎" },
-                    { amount: "10K", price: 8500, emoji: "👑" }
+                    { amount: "100", price: 30, emoji: "👥" },
+                    { amount: "500", price: 140, emoji: "🔥" },
+                    { amount: "1K", price: 270, emoji: "🚀" },
+                    { amount: "2.5K", price: 640, emoji: "💎" },
+                    { amount: "5K", price: 1200, emoji: "👑" },
+                    { amount: "10K", price: 2300, emoji: "🏆" }
                 ]
             }
         };
 
         // DOM elements
         const serviceSelect = document.getElementById('service');
-        const packageSelect = document.getElementById('package');
         const quantityInput = document.getElementById('quantity');
+        const linkInput = document.getElementById('link');
+        const phoneInput = document.getElementById('phone');
+        const emailInput = document.getElementById('email');
         const orderForm = document.getElementById('orderForm');
         const loadingIndicator = document.getElementById('loadingIndicator');
         const successAlert = document.getElementById('successAlert');
@@ -934,37 +1026,38 @@
         
         // Order summary elements
         const summaryService = document.getElementById('summaryService');
-        const summaryPackage = document.getElementById('summaryPackage');
         const summaryQuantity = document.getElementById('summaryQuantity');
         const summaryUnitPrice = document.getElementById('summaryUnitPrice');
         const summaryTotal = document.getElementById('summaryTotal');
         
+        // M-Pesa elements
+        const mpesaAmount = document.getElementById('mpesaAmount');
+        const accountNumber = document.getElementById('accountNumber');
+        
         // Pricing elements
-        const platformButtons = document.querySelectorAll('.platform-btn');
+        const serviceButtons = document.querySelectorAll('.service-btn');
+        const pricingTitle = document.getElementById('pricingTitle');
         const pricingSubtitle = document.getElementById('pricingSubtitle');
         const pricingRows = document.getElementById('pricingRows');
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             // Set up service selection
-            serviceSelect.addEventListener('change', updatePackages);
-            
-            // Set up package selection
-            packageSelect.addEventListener('change', updateOrderSummary);
+            serviceSelect.addEventListener('change', updateOrderSummary);
             
             // Set up quantity input
             quantityInput.addEventListener('input', updateOrderSummary);
             
-            // Set up platform selector
-            platformButtons.forEach(button => {
+            // Set up service selector
+            serviceButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const platform = this.getAttribute('data-platform');
-                    switchPricing(platform);
+                    const service = this.getAttribute('data-service');
+                    switchService(service);
                 });
             });
             
-            // Initialize with TikTok pricing
-            switchPricing('tiktok');
+            // Initialize with TikTok Views
+            switchService('tiktok_views');
             
             // Set up form submission
             orderForm.addEventListener('submit', submitOrder);
@@ -973,55 +1066,60 @@
             updateOrderSummary();
         });
 
-        // Update packages based on selected service
-        function updatePackages() {
-            const service = serviceSelect.value;
-            packageSelect.innerHTML = '<option value="">Select a package</option>';
+        // Calculate price based on quantity and service
+        function calculatePrice(serviceKey, quantity) {
+            const service = services[serviceKey];
+            if (!service) return 0;
             
-            if (service && services[service]) {
-                services[service].packages.forEach(pkg => {
-                    const option = document.createElement('option');
-                    option.value = pkg.amount;
-                    option.textContent = `${pkg.amount} - Ksh ${pkg.price}`;
-                    option.dataset.price = pkg.price;
-                    packageSelect.appendChild(option);
-                });
+            let price = quantity * service.basePrice;
+            
+            // Apply tier discounts
+            for (const tier of service.tiers) {
+                if (quantity >= tier.min && quantity <= tier.max) {
+                    price = price * (1 - tier.discount);
+                    break;
+                }
             }
             
-            updateOrderSummary();
+            // Ensure minimum price
+            if (quantity < 100) {
+                price = 100 * service.basePrice;
+            }
+            
+            return Math.round(price);
         }
 
         // Update order summary
         function updateOrderSummary() {
-            const service = serviceSelect.value;
-            const package = packageSelect.options[packageSelect.selectedIndex];
-            const quantity = parseInt(quantityInput.value) || 1;
+            const serviceKey = serviceSelect.value;
+            const quantity = parseInt(quantityInput.value) || 1000;
             
-            if (service && services[service] && package && package.value) {
-                const serviceName = services[service].name;
-                const packageAmount = package.value;
-                const unitPrice = parseInt(package.dataset.price) || 0;
-                const total = unitPrice * quantity;
+            if (serviceKey && services[serviceKey]) {
+                const serviceName = services[serviceKey].name;
+                const unitPrice = services[serviceKey].basePrice;
+                const total = calculatePrice(serviceKey, quantity);
                 
                 summaryService.textContent = serviceName;
-                summaryPackage.textContent = packageAmount;
-                summaryQuantity.textContent = quantity;
-                summaryUnitPrice.textContent = `Ksh ${unitPrice}`;
+                summaryQuantity.textContent = quantity.toLocaleString();
+                summaryUnitPrice.textContent = `Ksh ${(unitPrice * 1000).toFixed(2)} per 1K`;
                 summaryTotal.textContent = `Ksh ${total}`;
+                
+                // Update M-Pesa amount
+                mpesaAmount.textContent = `Ksh ${total}`;
             } else {
                 summaryService.textContent = '-';
-                summaryPackage.textContent = '-';
                 summaryQuantity.textContent = '-';
                 summaryUnitPrice.textContent = '-';
                 summaryTotal.textContent = 'Ksh 0';
+                mpesaAmount.textContent = 'Ksh 0';
             }
         }
 
-        // Switch pricing table based on platform
-        function switchPricing(platform) {
+        // Switch service in pricing section
+        function switchService(serviceKey) {
             // Update active button
-            platformButtons.forEach(button => {
-                if (button.getAttribute('data-platform') === platform) {
+            serviceButtons.forEach(button => {
+                if (button.getAttribute('data-service') === serviceKey) {
                     button.classList.add('active');
                 } else {
                     button.classList.remove('active');
@@ -1031,46 +1129,30 @@
             // Update pricing table
             pricingRows.innerHTML = '';
             
-            let serviceKey, subtitle;
-            switch(platform) {
-                case 'tiktok':
-                    serviceKey = 'tiktok_views';
-                    subtitle = 'Real TikTok Views | Fast AF | Trusted Plug';
-                    break;
-                case 'instagram':
-                    serviceKey = 'instagram_followers';
-                    subtitle = 'Real Instagram Followers | High Quality | Trusted Plug';
-                    break;
-                case 'facebook':
-                    serviceKey = 'facebook_likes';
-                    subtitle = 'Real Facebook Likes | Fast Delivery | Trusted Plug';
-                    break;
-            }
-            
-            pricingSubtitle.textContent = subtitle;
-            
             if (services[serviceKey]) {
-                services[serviceKey].packages.forEach(pkg => {
+                const service = services[serviceKey];
+                pricingTitle.textContent = `🚨 CLOUDFARM 🌱 ${service.name.toUpperCase()} PRICE LIST 🚨`;
+                pricingSubtitle.textContent = `Real ${service.name} | Fast AF | Trusted Plug`;
+                
+                service.packages.forEach(pkg => {
                     const row = document.createElement('div');
                     row.className = 'pricing-row';
                     row.innerHTML = `
-                        <span class="amount">${pkg.amount} ${services[serviceKey].name.split(' ')[1] || ''}</span>
+                        <span class="amount">${pkg.amount} ${service.name.split(' ')[1] || ''}</span>
                         <span class="price">Ksh ${pkg.price} <span class="emoji">${pkg.emoji}</span></span>
                     `;
                     
                     // Add click event to pre-fill order form
                     row.addEventListener('click', function() {
                         serviceSelect.value = serviceKey;
-                        updatePackages();
                         
-                        // Find and select the matching package
-                        for (let i = 0; i < packageSelect.options.length; i++) {
-                            if (packageSelect.options[i].value === pkg.amount) {
-                                packageSelect.selectedIndex = i;
-                                break;
-                            }
+                        // Extract quantity from package (e.g., "1K" -> 1000)
+                        let quantity = parseInt(pkg.amount);
+                        if (pkg.amount.includes('K')) {
+                            quantity = quantity * 1000;
                         }
                         
+                        quantityInput.value = quantity;
                         updateOrderSummary();
                         scrollToOrder();
                     });
@@ -1084,14 +1166,21 @@
         function submitOrder(e) {
             e.preventDefault();
             
-            const service = serviceSelect.value;
-            const package = packageSelect.value;
+            const serviceKey = serviceSelect.value;
             const quantity = quantityInput.value;
-            const link = document.getElementById('link').value;
-            const email = document.getElementById('email').value;
+            const link = linkInput.value;
+            const phone = phoneInput.value;
+            const email = emailInput.value;
             
-            if (!service || !package || !quantity || !link || !email) {
+            if (!serviceKey || !quantity || !link || !phone || !email) {
                 showAlert(errorAlert, 'Please fill in all fields');
+                return;
+            }
+            
+            // Validate phone number (Kenyan format)
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
+                showAlert(errorAlert, 'Please enter a valid Kenyan phone number (10 digits)');
                 return;
             }
             
@@ -1099,6 +1188,10 @@
             loadingIndicator.style.display = 'block';
             successAlert.style.display = 'none';
             errorAlert.style.display = 'none';
+            
+            // Generate order ID
+            const orderId = 'CF' + Date.now().toString().slice(-6);
+            accountNumber.textContent = orderId;
             
             // In a real implementation, you would send this data to your API
             // For demonstration, we'll simulate an API call
@@ -1109,9 +1202,14 @@
                 loadingIndicator.style.display = 'none';
                 
                 if (success) {
-                    showAlert(successAlert, 'Order placed successfully!');
-                    orderForm.reset();
-                    updateOrderSummary();
+                    showAlert(successAlert, 'Order placed successfully! Check your email for M-Pesa payment instructions.');
+                    
+                    // Scroll to order summary to show M-Pesa details
+                    document.querySelector('.order-summary').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // In a real implementation, you would send an email with payment instructions
+                    // orderForm.reset();
+                    // updateOrderSummary();
                 } else {
                     showAlert(errorAlert, 'There was an error processing your order. Please try again.');
                 }
