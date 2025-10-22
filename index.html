@@ -227,10 +227,125 @@
             margin-bottom: 20px;
         }
 
+        /* Order Form Section */
+        .order-section {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+
+        .order-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .order-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+
+        .order-summary {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--secondary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
         /* Pricing Section */
         .pricing {
             padding: 80px 0;
-            background-color: #f5f7fa;
+            background-color: white;
         }
 
         .platform-selector {
@@ -238,6 +353,7 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .platform-btn {
@@ -289,6 +405,12 @@
             justify-content: space-between;
             padding: 15px 20px;
             border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .pricing-row:hover {
+            background-color: #f9f9f9;
         }
 
         .pricing-row:nth-child(even) {
@@ -494,11 +616,11 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#order">Order Now</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-                <button class="cta-button">Get Started</button>
+                <button class="cta-button" onclick="scrollToOrder()">Order Now</button>
             </div>
         </div>
     </header>
@@ -509,8 +631,8 @@
             <h2>Boost Your Social Media Presence</h2>
             <p>Get real followers, likes, and views for Instagram, TikTok, and Facebook. Grow your audience and increase engagement with our premium SMMA services.</p>
             <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary">View Pricing</a>
-                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                <a href="#order" class="btn btn-primary">Order Now</a>
+                <a href="#pricing" class="btn btn-secondary">View Pricing</a>
             </div>
         </div>
     </section>
@@ -529,7 +651,7 @@
                     </div>
                     <h3>Instagram Growth</h3>
                     <p>Get real followers, likes, and views for your Instagram profile and posts.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
+                    <a href="#order" class="btn btn-primary">Order Now</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -537,7 +659,7 @@
                     </div>
                     <h3>TikTok Engagement</h3>
                     <p>Increase your TikTok views and followers to go viral and reach more people.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
+                    <a href="#order" class="btn btn-primary">Order Now</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -545,7 +667,94 @@
                     </div>
                     <h3>Facebook Promotion</h3>
                     <p>Boost your Facebook page likes, post engagement, and video views.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
+                    <a href="#order" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="order-section" id="order">
+        <div class="container">
+            <div class="section-title">
+                <h2>Place Your Order</h2>
+                <p>Fill out the form below to boost your social media presence</p>
+            </div>
+            
+            <div class="order-container">
+                <div class="order-form">
+                    <div class="alert alert-success" id="successAlert">
+                        Order placed successfully! You will receive a confirmation email shortly.
+                    </div>
+                    <div class="alert alert-error" id="errorAlert">
+                        There was an error processing your order. Please try again.
+                    </div>
+                    
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="service">Service Type</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="tiktok_views">TikTok Views</option>
+                                <option value="instagram_followers">Instagram Followers</option>
+                                <option value="facebook_likes">Facebook Likes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package">Package</label>
+                            <select id="package" class="form-control" required>
+                                <option value="">Select a package</option>
+                                <!-- Packages will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" class="form-control" min="1" value="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="link">Profile/Post Link</label>
+                            <input type="url" id="link" class="form-control" placeholder="https://..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Place Order</button>
+                    </form>
+                    
+                    <div class="loading" id="loadingIndicator">
+                        <div class="loading-spinner"></div>
+                        <p>Processing your order...</p>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-item">
+                        <span>Service:</span>
+                        <span id="summaryService">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Package:</span>
+                        <span id="summaryPackage">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Quantity:</span>
+                        <span id="summaryQuantity">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Unit Price:</span>
+                        <span id="summaryUnitPrice">-</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="summaryTotal">Ksh 0</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -574,49 +783,10 @@
             <div class="pricing-table">
                 <div class="pricing-header">
                     <h3>🚨 CLOUDFARM 🌱 PRICE LIST 🚨</h3>
-                    <p>Real TikTok Views | Fast AF | Trusted Plug</p>
+                    <p id="pricingSubtitle">Real TikTok Views | Fast AF | Trusted Plug</p>
                 </div>
-                <div class="pricing-rows">
-                    <div class="pricing-row">
-                        <span class="amount">1K views</span>
-                        <span class="price">Ksh 102 <span class="emoji">🧠</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">2K views</span>
-                        <span class="price">Ksh 199 <span class="emoji">🫰</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">3K views</span>
-                        <span class="price">Ksh 295 <span class="emoji">😮‍💨</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">4K views</span>
-                        <span class="price">Ksh 390 <span class="emoji">🤑</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">5K views</span>
-                        <span class="price">Ksh 480 <span class="emoji">🔥</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">6K views</span>
-                        <span class="price">Ksh 570 <span class="emoji">💨</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">7K views</span>
-                        <span class="price">Ksh 655 <span class="emoji">💰</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">8K views</span>
-                        <span class="price">Ksh 740 <span class="emoji">🚀</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">9K views</span>
-                        <span class="price">Ksh 820 <span class="emoji">🧾</span></span>
-                    </div>
-                    <div class="pricing-row">
-                        <span class="amount">10K views</span>
-                        <span class="price">Ksh 899 <span class="emoji">📈</span></span>
-                    </div>
+                <div class="pricing-rows" id="pricingRows">
+                    <!-- Pricing rows will be populated by JavaScript -->
                 </div>
             </div>
             <p class="note">WITHOUT LOGINS • FAST DELIVERY • 24/7 SUPPORT</p>
@@ -656,11 +826,11 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" id="contact">
+    <section class="cta-section">
         <div class="container">
             <h2>Ready to Boost Your Social Media?</h2>
             <p>Start growing your followers, likes, and views today with CloudFarm's premium SMMA services.</p>
-            <a href="#" class="btn btn-primary">Get Started Now</a>
+            <a href="#order" class="btn btn-primary">Order Now</a>
         </div>
     </section>
 
@@ -681,10 +851,10 @@
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Instagram Followers</a></li>
-                        <li><a href="#">TikTok Views</a></li>
-                        <li><a href="#">Facebook Likes</a></li>
-                        <li><a href="#">YouTube Subscribers</a></li>
+                        <li><a href="#order">Instagram Followers</a></li>
+                        <li><a href="#order">TikTok Views</a></li>
+                        <li><a href="#order">Facebook Likes</a></li>
+                        <li><a href="#order">YouTube Subscribers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -712,45 +882,282 @@
     </footer>
 
     <script>
-        // Platform selector functionality
+        // Service data
+        const services = {
+            tiktok_views: {
+                name: "TikTok Views",
+                packages: [
+                    { amount: "1K", price: 102, emoji: "🧠" },
+                    { amount: "2K", price: 199, emoji: "🫰" },
+                    { amount: "3K", price: 295, emoji: "😮‍💨" },
+                    { amount: "4K", price: 390, emoji: "🤑" },
+                    { amount: "5K", price: 480, emoji: "🔥" },
+                    { amount: "6K", price: 570, emoji: "💨" },
+                    { amount: "7K", price: 655, emoji: "💰" },
+                    { amount: "8K", price: 740, emoji: "🚀" },
+                    { amount: "9K", price: 820, emoji: "🧾" },
+                    { amount: "10K", price: 899, emoji: "📈" }
+                ]
+            },
+            instagram_followers: {
+                name: "Instagram Followers",
+                packages: [
+                    { amount: "100", price: 150, emoji: "👥" },
+                    { amount: "500", price: 650, emoji: "🔥" },
+                    { amount: "1K", price: 1200, emoji: "🚀" },
+                    { amount: "2.5K", price: 2800, emoji: "💎" },
+                    { amount: "5K", price: 5200, emoji: "👑" },
+                    { amount: "10K", price: 9800, emoji: "🏆" }
+                ]
+            },
+            facebook_likes: {
+                name: "Facebook Likes",
+                packages: [
+                    { amount: "100", price: 120, emoji: "👍" },
+                    { amount: "500", price: 550, emoji: "💙" },
+                    { amount: "1K", price: 1000, emoji: "🔥" },
+                    { amount: "2.5K", price: 2300, emoji: "🚀" },
+                    { amount: "5K", price: 4400, emoji: "💎" },
+                    { amount: "10K", price: 8500, emoji: "👑" }
+                ]
+            }
+        };
+
+        // DOM elements
+        const serviceSelect = document.getElementById('service');
+        const packageSelect = document.getElementById('package');
+        const quantityInput = document.getElementById('quantity');
+        const orderForm = document.getElementById('orderForm');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const successAlert = document.getElementById('successAlert');
+        const errorAlert = document.getElementById('errorAlert');
+        
+        // Order summary elements
+        const summaryService = document.getElementById('summaryService');
+        const summaryPackage = document.getElementById('summaryPackage');
+        const summaryQuantity = document.getElementById('summaryQuantity');
+        const summaryUnitPrice = document.getElementById('summaryUnitPrice');
+        const summaryTotal = document.getElementById('summaryTotal');
+        
+        // Pricing elements
+        const platformButtons = document.querySelectorAll('.platform-btn');
+        const pricingSubtitle = document.getElementById('pricingSubtitle');
+        const pricingRows = document.getElementById('pricingRows');
+
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            const platformButtons = document.querySelectorAll('.platform-btn');
+            // Set up service selection
+            serviceSelect.addEventListener('change', updatePackages);
             
+            // Set up package selection
+            packageSelect.addEventListener('change', updateOrderSummary);
+            
+            // Set up quantity input
+            quantityInput.addEventListener('input', updateOrderSummary);
+            
+            // Set up platform selector
             platformButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    platformButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // In a real implementation, you would update the pricing table here
-                    // based on the selected platform
+                    const platform = this.getAttribute('data-platform');
+                    switchPricing(platform);
                 });
             });
             
-            // Simple animation on scroll
-            const observerOptions = {
-                threshold: 0.1
-            };
+            // Initialize with TikTok pricing
+            switchPricing('tiktok');
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+            // Set up form submission
+            orderForm.addEventListener('submit', submitOrder);
+            
+            // Initialize order summary
+            updateOrderSummary();
+        });
+
+        // Update packages based on selected service
+        function updatePackages() {
+            const service = serviceSelect.value;
+            packageSelect.innerHTML = '<option value="">Select a package</option>';
+            
+            if (service && services[service]) {
+                services[service].packages.forEach(pkg => {
+                    const option = document.createElement('option');
+                    option.value = pkg.amount;
+                    option.textContent = `${pkg.amount} - Ksh ${pkg.price}`;
+                    option.dataset.price = pkg.price;
+                    packageSelect.appendChild(option);
                 });
-            }, observerOptions);
+            }
             
-            // Observe elements for animation
-            const animatedElements = document.querySelectorAll('.service-card, .feature, .pricing-table');
-            animatedElements.forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(el);
+            updateOrderSummary();
+        }
+
+        // Update order summary
+        function updateOrderSummary() {
+            const service = serviceSelect.value;
+            const package = packageSelect.options[packageSelect.selectedIndex];
+            const quantity = parseInt(quantityInput.value) || 1;
+            
+            if (service && services[service] && package && package.value) {
+                const serviceName = services[service].name;
+                const packageAmount = package.value;
+                const unitPrice = parseInt(package.dataset.price) || 0;
+                const total = unitPrice * quantity;
+                
+                summaryService.textContent = serviceName;
+                summaryPackage.textContent = packageAmount;
+                summaryQuantity.textContent = quantity;
+                summaryUnitPrice.textContent = `Ksh ${unitPrice}`;
+                summaryTotal.textContent = `Ksh ${total}`;
+            } else {
+                summaryService.textContent = '-';
+                summaryPackage.textContent = '-';
+                summaryQuantity.textContent = '-';
+                summaryUnitPrice.textContent = '-';
+                summaryTotal.textContent = 'Ksh 0';
+            }
+        }
+
+        // Switch pricing table based on platform
+        function switchPricing(platform) {
+            // Update active button
+            platformButtons.forEach(button => {
+                if (button.getAttribute('data-platform') === platform) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
             });
+            
+            // Update pricing table
+            pricingRows.innerHTML = '';
+            
+            let serviceKey, subtitle;
+            switch(platform) {
+                case 'tiktok':
+                    serviceKey = 'tiktok_views';
+                    subtitle = 'Real TikTok Views | Fast AF | Trusted Plug';
+                    break;
+                case 'instagram':
+                    serviceKey = 'instagram_followers';
+                    subtitle = 'Real Instagram Followers | High Quality | Trusted Plug';
+                    break;
+                case 'facebook':
+                    serviceKey = 'facebook_likes';
+                    subtitle = 'Real Facebook Likes | Fast Delivery | Trusted Plug';
+                    break;
+            }
+            
+            pricingSubtitle.textContent = subtitle;
+            
+            if (services[serviceKey]) {
+                services[serviceKey].packages.forEach(pkg => {
+                    const row = document.createElement('div');
+                    row.className = 'pricing-row';
+                    row.innerHTML = `
+                        <span class="amount">${pkg.amount} ${services[serviceKey].name.split(' ')[1] || ''}</span>
+                        <span class="price">Ksh ${pkg.price} <span class="emoji">${pkg.emoji}</span></span>
+                    `;
+                    
+                    // Add click event to pre-fill order form
+                    row.addEventListener('click', function() {
+                        serviceSelect.value = serviceKey;
+                        updatePackages();
+                        
+                        // Find and select the matching package
+                        for (let i = 0; i < packageSelect.options.length; i++) {
+                            if (packageSelect.options[i].value === pkg.amount) {
+                                packageSelect.selectedIndex = i;
+                                break;
+                            }
+                        }
+                        
+                        updateOrderSummary();
+                        scrollToOrder();
+                    });
+                    
+                    pricingRows.appendChild(row);
+                });
+            }
+        }
+
+        // Submit order form
+        function submitOrder(e) {
+            e.preventDefault();
+            
+            const service = serviceSelect.value;
+            const package = packageSelect.value;
+            const quantity = quantityInput.value;
+            const link = document.getElementById('link').value;
+            const email = document.getElementById('email').value;
+            
+            if (!service || !package || !quantity || !link || !email) {
+                showAlert(errorAlert, 'Please fill in all fields');
+                return;
+            }
+            
+            // Show loading indicator
+            loadingIndicator.style.display = 'block';
+            successAlert.style.display = 'none';
+            errorAlert.style.display = 'none';
+            
+            // In a real implementation, you would send this data to your API
+            // For demonstration, we'll simulate an API call
+            setTimeout(() => {
+                // Simulate API response
+                const success = Math.random() > 0.2; // 80% success rate for demo
+                
+                loadingIndicator.style.display = 'none';
+                
+                if (success) {
+                    showAlert(successAlert, 'Order placed successfully!');
+                    orderForm.reset();
+                    updateOrderSummary();
+                } else {
+                    showAlert(errorAlert, 'There was an error processing your order. Please try again.');
+                }
+            }, 2000);
+        }
+
+        // Show alert message
+        function showAlert(alertElement, message) {
+            alertElement.textContent = message;
+            alertElement.style.display = 'block';
+            
+            // Scroll to alert
+            alertElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide alert after 5 seconds
+            setTimeout(() => {
+                alertElement.style.display = 'none';
+            }, 5000);
+        }
+
+        // Scroll to order section
+        function scrollToOrder() {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        const animatedElements = document.querySelectorAll('.service-card, .feature, .pricing-table, .order-form, .order-summary');
+        animatedElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
         });
     </script>
 </body>
