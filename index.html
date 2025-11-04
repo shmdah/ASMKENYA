@@ -1,267 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Phantom – Balance (Interactive Mock)</title>
-<style>
-  :root{
-    --bg:#0f1114;
-    --panel:#14171c;
-    --panel-2:#181c22;
-    --chip:#0f2516;
-    --text:#f3f5ff;
-    --sub:#b9bed1;
-    --muted:#9ea4ba;
-    --good:#21dd7b;
-    --lav:#a996ff;
-    --lav-2:#b7a6ff;
-    --border:#242938;
-    --radius:18px;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;background:radial-gradient(1200px 450px at 50% -120px,#14181f 0%,#0f1114 48%),var(--bg);
-    color:var(--text);font-family:ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  }
-  .wrap{max-width:460px;margin:0 auto;min-height:100dvh;padding-bottom:84px}
-  header{
-    padding:22px 18px 6px; display:flex; align-items:flex-start; justify-content:space-between;
-  }
-  .title{font-size:46px; font-weight:900; letter-spacing:.3px}
-  .chips{display:flex; gap:12px; margin-top:6px; align-items:center}
-  .chip{
-    background:var(--chip); color:var(--good); border:1px solid #133a22;
-    padding:10px 14px; border-radius:14px; font-weight:800;
-  }
-  .actions{display:flex; gap:14px; padding:16px 18px}
-  .btn{
-    flex:1; padding:16px 8px; text-align:center; border-radius:14px; background:var(--lav);
-    color:#121216; font-weight:900; border:1px solid #8a7bff; box-shadow:0 8px 24px rgba(115,101,255,.25);
-  }
-  .btn.secondary{background:#201f2b;color:var(--text);border-color:#2a2d3d}
-  /* Portfolio item */
-  .card{
-    margin:10px 18px; background:var(--panel); border:1px solid var(--border); border-radius:18px; padding:14px;
-    display:flex; align-items:center; gap:12px;
-  }
-  .logo{
-    width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#0c0f14;border:1px solid #202536;
-  }
-  .logo svg{width:28px;height:28px}
-  .c-main{flex:1}
-  .name{font-weight:800; font-size:20px}
-  .sub{color:var(--muted); font-weight:600; margin-top:4px}
-  .right{text-align:right}
-  .money{font-weight:800}
-  .gain{color:var(--good); font-weight:800; margin-top:6px}
-  /* bottom dock */
-  .dock{position:fixed;left:0;right:0;bottom:0; background:rgba(15,17,20,.8); backdrop-filter:blur(6px) saturate(140%); border-top:1px solid var(--border)}
-  .dock-inner{max-width:460px;margin:0 auto; display:flex; justify-content:space-around; padding:12px}
-  .dock a{width:48px;height:48px; border:1px solid var(--border); border-radius:14px; display:grid;place-items:center;background:#151922}
-  .kebab{margin-left:8px}
-  /* small toast */
-  .toast{
-    position:fixed; left:50%; bottom:96px; transform:translateX(-50%); background:#12161e; border:1px solid #253049;
-    color:#dbe1ff; padding:10px 14px; border-radius:12px; opacity:0; pointer-events:none; transition:opacity .25s ease;
-  }
-  .toast.show{opacity:1}
-  /* tiny helpers */
-  button{cursor:pointer}
-  .mini{display:flex; gap:8px; align-items:center}
-  .ghost{background:transparent;border:1px solid #2a2e3f;color:#d8dcff;border-radius:12px;padding:10px 12px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphone Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --primary-color: #ffffff;
+            --secondary-color: #a0a0a0;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        header nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        header ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header ul li {
+            margin-left: 25px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        header ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section (First thing you see) --- */
+        .hero {
+            padding: 60px 0;
+            min-height: 80vh;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1; /* Takes up half the space */
+        }
+
+        .hero-text h2 {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1; /* Takes up the other half */
+            text-align: center;
+            position: relative; /* Needed to position the play button */
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        /* --- Play/Pause Button (from the video) --- */
+        .play-pause-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            backdrop-filter: blur(5px); /* Glassy effect */
+        }
+
+        .play-pause-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-pause-btn svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* --- General Button Style --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+        }
+
+        /* --- Feature Sections --- */
+        .feature {
+            padding: 80px 0;
+            background-color: #1a1a1a; /* Slightly different background */
+        }
+        
+        /* Alternating background color */
+        .feature-alt {
+            background-color: var(--bg-color);
+        }
+
+        .feature .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        /* This rule swaps the image and text order for every even-numbered section */
+        .feature:nth-child(even) .container {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h2 {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+        }
+
+        .feature-text h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .feature-image img {
+            max-width: 80%; /* Make images a bit smaller */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+        }
+
+        /* --- Responsive Design (for mobile) --- */
+        @media (max-width: 768px) {
+            .hero .container,
+            .feature .container,
+            .feature:nth-child(even) .container {
+                /* Stack elements on top of each other on small screens */
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text, .feature-text {
+                margin-bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .feature-text h1 {
+                font-size: 2rem;
+            }
+
+            header nav .container {
+                flex-direction: column;
+            }
+
+            header ul {
+                margin-top: 15px;
+            }
+            
+            header ul li {
+                margin-left: 15px; /* Smaller margin on mobile */
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- BALANCE -->
+
     <header>
-      <div>
-        <div id="balance" class="title">$655,337.51</div>
-        <div class="chips">
-          <div id="chgUsd" class="chip">+$53,834.52</div>
-          <div id="chgPct" class="chip">+8.95%</div>
-        </div>
-      </div>
-      <div class="mini">
-        <button id="rnd" class="ghost" title="Refresh price">↻</button>
-        <button id="edit" class="ghost kebab" title="Set SOL price">✎</button>
-      </div>
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">AudioBrand</a>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Specs</a></li>
+                    <li><a href="#">Buy Now</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- ACTIONS -->
-    <div class="actions">
-      <button id="depositBtn" class="btn">Deposit</button>
-      <button id="buyBtn" class="btn">Buy</button>
-      <button id="sendBtn" class="btn">Send</button>
-    </div>
+    <main>
 
-    <!-- SOL ROW -->
-    <div class="card">
-      <div class="logo" aria-hidden="true">
-        <!-- Solana mark (inline) -->
-        <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#23ff9a"/><stop offset="1" stop-color="#8a7bff"/>
-            </linearGradient>
-          </defs>
-          <path d="M185 176a7 7 0 0 1-5 2H46a6 6 0 0 1-4-10l26-26a6 6 0 0 1 4-2h134a6 6 0 0 1 4 10l-29 26zM210 110a6 6 0 0 1-5 2H71a6 6 0 0 1-5-10l27-26a6 6 0 0 1 4-2h135a6 6 0 0 1 4 10l-26 26z" fill="url(#g1)"/>
-        </svg>
-      </div>
-      <div class="c-main">
-        <div class="name">Solana</div>
-        <div id="solQty" class="sub">4,428.63948 SOL</div>
-      </div>
-      <div class="right">
-        <div id="solValue" class="money">$341,637.51</div>
-        <div id="solGain" class="gain">+$21,152.00</div>
-      </div>
-    </div>
-  </div>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <h2>ACHIEVE SILENCE WITHOUT</h2>
+                    <h1>Wireless freedom, premium sound</h1>
+                    <p>LDAC transmits approximately three times more data... You'll enjoy high-resolution audio content in exceptional quality.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://placehold.co/500x500/555/FFF?text=Headphones" alt="Headphones">
+                    <div class="play-pause-btn" id="playBtn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Bottom dock (dummy) -->
-  <div class="dock">
-    <div class="dock-inner">
-      <a title="Home">🏠</a>
-      <a title="Cards">💳</a>
-      <a title="Swap">🔁</a>
-      <a title="Search">🔎</a>
-    </div>
-  </div>
+        <section class="feature">
+            <div class="container">
+                <div class="feature-text">
+                    <h2>AUDIO QUALITY</h2>
+                    <h1>Wear all day in total comfort</h1>
+                    <p>Expertly crafted using premium materials, our headphones are lightweight and durable for a luxurious and superior fit.</p>
+                    <a href="#" class="btn">Explore Earpads</a>
+                </div>
+                <div class="feature-image">
+                    <img src="https://placehold.co/400x400/555/FFF?text=Earpad+View" alt="Earpad components">
+                </div>
+            </div>
+        </section>
 
-  <div id="toast" class="toast"></div>
+        <section class="feature feature-alt">
+            <div class="container">
+                <div class="feature-text">
+                     <h2>NOISE CANCELLATION</h2>
+                    <h1>Lose yourself in silence</h1>
+                    <p>Our industry-leading noise cancellation evolves to further immerse you in your music, with two processors and multiple microphones.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="https://placehold.co/600x200/555/FFF?text=Soundwave+Graphic" alt="Soundwave">
+                </div>
+            </div>
+        </section>
 
-<script>
-/* ---------- STATE ---------- */
-const state = {
-  // Start aligned with your screenshot
-  cash: 313700.00,                 // USD cash balance
-  solQty: 4428.63948,              // SOL holdings
-  solPrice: 341637.51 / 4428.63948,// ~77.1428
-  // “yesterday” values for P/L
-  pctChange: 8.95/100              // 8.95% day change
-};
-// derive previous totals
-function previousTotals(){
-  const total = totalUSD();
-  const prevTotal = total / (1 + state.pctChange);
-  return { total, prevTotal, changeUsd: total - prevTotal };
-}
-function totalUSD(){
-  return round2(state.cash + state.solQty * state.solPrice);
-}
-function numberWithCommas(n, dec=2){
-  return n.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec});
-}
-function round2(n){ return Math.round(n*100)/100; }
+        <section class="feature">
+            <div class="container">
+                <div class="feature-text">
+                    <h2>INTUITIVE CONTROLS</h2>
+                    <h1>Control at your fingertip</h1>
+                    <p>Change the track, turn the volume up or down, and take or make calls by tapping or swiping the panel on your earcup.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="feature-image">
+                     <img src="https://placehold.co/400x300/555/FFF?text=Touch+Controls" alt="Touch controls">
+                </div>
+            </div>
+        </section>
 
-/* ---------- UI BIND ---------- */
-const el = {
-  balance: document.getElementById('balance'),
-  chgUsd: document.getElementById('chgUsd'),
-  chgPct: document.getElementById('chgPct'),
-  solQty: document.getElementById('solQty'),
-  solValue: document.getElementById('solValue'),
-  solGain: document.getElementById('solGain'),
-  toast: document.getElementById('toast'),
-  depositBtn: document.getElementById('depositBtn'),
-  buyBtn: document.getElementById('buyBtn'),
-  sendBtn: document.getElementById('sendBtn'),
-  rnd: document.getElementById('rnd'),
-  edit: document.getElementById('edit')
-};
+    </main>
 
-function render(){
-  // totals & change
-  const { total, changeUsd } = previousTotals();
-  el.balance.textContent = `$${numberWithCommas(total)}`;
-  el.chgPct.textContent = `+${(state.pctChange*100).toFixed(2)}%`;
-  el.chgUsd.textContent = `+$${numberWithCommas(changeUsd)}`;
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AudioBrand. All rights reserved.</p>
+        </div>
+    </footer>
 
-  // sol line
-  el.solQty.textContent = `${numberWithCommas(state.solQty,5)} SOL`;
-  const solValue = state.solQty * state.solPrice;
-  el.solValue.textContent = `$${numberWithCommas(solValue)}`;
+    <script>
+        // This script waits for the page to load
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Find all the elements we need
+            const playBtn = document.getElementById('playBtn');
+            const playIcon = playBtn.querySelector('.play-icon');
+            const pauseIcon = playBtn.querySelector('.pause-icon');
 
-  // simple per-asset “gain” (from yesterday price)
-  const prevPrice = state.solPrice / (1 + state.pctChange); // same percentage for demo
-  const assetGain = (state.solPrice - prevPrice) * state.solQty;
-  el.solGain.textContent = `${assetGain>=0?'+':'-'}$${numberWithCommas(Math.abs(assetGain))}`;
-}
-render();
+            // Add a 'click' event listener to the button
+            playBtn.addEventListener('click', () => {
+                
+                // Check which icon is currently visible
+                if (pauseIcon.style.display === 'none') {
+                    // If pause is hidden, show it and hide the play icon
+                    pauseIcon.style.display = 'block';
+                    playIcon.style.display = 'none';
+                    console.log('Video Playing... (placeholder action)');
+                } else {
+                    // Otherwise, hide pause and show play
+                    pauseIcon.style.display = 'none';
+                    playIcon.style.display = 'block';
+                    console.log('Video Paused... (placeholder action)');
+                }
+            });
+        });
+    </script>
 
-/* ---------- HELPERS ---------- */
-function toast(msg){
-  el.toast.textContent = msg;
-  el.toast.classList.add('show');
-  setTimeout(()=>el.toast.classList.remove('show'), 1600);
-}
-function askNumber(message, decimals=2){
-  const v = prompt(message);
-  if(v===null) return null;
-  const n = Number(v);
-  if(Number.isNaN(n) || n<0){ alert('Enter a valid non-negative number.'); return null; }
-  return Number(n.toFixed(decimals));
-}
-
-/* ---------- ACTIONS ---------- */
-el.depositBtn.addEventListener('click', ()=>{
-  const amt = askNumber('Deposit amount in USD:');
-  if(amt==null) return;
-  state.cash += amt;
-  render();
-  toast(`Deposited $${numberWithCommas(amt)}`);
-});
-
-el.buyBtn.addEventListener('click', ()=>{
-  const usd = askNumber('Buy SOL with how many USD?');
-  if(usd==null) return;
-  if(usd > state.cash){ alert('Not enough cash.'); return;}
-  const qty = usd / state.solPrice;
-  state.cash -= usd;
-  state.solQty += qty;
-  render();
-  toast(`Bought ${qty.toFixed(4)} SOL`);
-});
-
-el.sendBtn.addEventListener('click', ()=>{
-  const choice = prompt('Type "SOL" to send SOL, or "USD" to send cash:','SOL');
-  if(choice===null) return;
-  if(choice.toLowerCase()==='sol'){
-    const qty = askNumber('How much SOL to send?',5);
-    if(qty==null) return;
-    if(qty>state.solQty){ alert('Not enough SOL.'); return;}
-    state.solQty -= qty;
-    render();
-    toast(`Sent ${qty.toFixed(4)} SOL`);
-  }else{
-    const usd = askNumber('How many USD to send out?');
-    if(usd==null) return;
-    if(usd>state.cash){ alert('Not enough cash.'); return;}
-    state.cash -= usd;
-    render();
-    toast(`Sent $${numberWithCommas(usd)}`);
-  }
-});
-
-/* Price wiggles (so you can see the P/L move) */
-el.rnd.addEventListener('click', ()=>{
-  const drift = (Math.random() * 0.06) - 0.03; // -3%..+3%
-  state.solPrice = Math.max(0.01, state.solPrice * (1 + drift));
-  state.pctChange = Math.max(-0.25, Math.min(0.25, state.pctChange + drift/3));
-  render();
-  toast('Market moved');
-});
-
-/* Directly edit SOL price */
-el.edit.addEventListener('click', ()=>{
-  const v = askNumber('Set SOL price (USD per SOL):', 4);
-  if(v==null) return;
-  state.solPrice = v;
-  render();
-  toast(`SOL = $${v}`);
-});
-</script>
 </body>
 </html>
